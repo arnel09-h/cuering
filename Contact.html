@@ -1,92 +1,204 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #141e30, #6A11CB);
+            padding: 0 15px 25px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            background: #243b55;
+            padding: 18px 10px;
+            margin: 0 -15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: white;
+            color: #243b55;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 40px;
+            margin: 35px 0 25px;
+            letter-spacing: 2px;
+        }
+
+        /* Contact Form */
+        .container {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #3b63ad, #6A11CB);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 18px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input[type="text"] {
+            text-align: center;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Tablet */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 34px;
+            }
+
+            .container {
+                max-width: 550px;
+                padding: 25px;
+            }
+
+            nav {
+                gap: 5px;
+            }
+        }
+
+        /* Mobile */
+        @media screen and (max-width: 480px) {
+            nav {
+                gap: 3px;
+                padding: 12px 5px;
+            }
+
+            nav a {
+                padding: 9px 12px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 29px;
+                margin: 30px 0 20px;
+            }
+
+            .container {
+                padding: 20px 16px;
+                border-radius: 18px;
+            }
+
+            input[type="text"],
+            select,
+            textarea {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
-<style>
-body{
-    background:linear-gradient(135deg,#141e30,#6A11CB)
-}
-            /* Style inputs with type="text", select elements and textareas */
-input[type=text], select, textarea {
-  text-align: center;
-  width: 80%; 
-  padding: 12px; 
-  border: 1px solid #ccc;
-  border-radius: 4px; 
-  box-sizing: border-box; 
-  margin-top: 6px;
-  margin-bottom: 16px; 
-  resize: vertical;
-}
 
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+<body>
 
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
 
-/* Add a background color and some padding around the form */
-.container {
-  border-radius: 37px;
-  width:70%;
-  max-width: 7700px;
-  background-color: #f2f2f2;
-  padding: 30px;
-  color:white;
-   background:linear-gradient(135deg,#3b63ad,#6A11CB);
-   margin:50px auto;
-   
-}
-a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
-}
+    <h1>Contact Us</h1>
 
-a:hover {
-  background-color: white;
-  color: black;
-}
+    <div class="container">
+        <form action="action_page.php" method="post">
 
-.previous {
-  background-color: #f1f1f1;
-  color: black;
-  border-radius: 26px;
-}
- </style>
-        </head>
-        <body>
-          <a href="index.html" class="previous">&laquo; Previous</a>
-            <div class="container">
-  <form action="action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname"
+                   placeholder="Your first name..." required>
 
-  <center> <label for="fname">First Name</label><br>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname"
+                   placeholder="Your last name..." required>
 
-   <br><label for="lname">Last Name</label><br>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="barangay">Barangay</label>
+            <select id="barangay" name="Barangay" required>
+                <option value="">Select your barangay</option>
+                <option value="Bag-ong Oslob">Bag-ong Oslob</option>
+                <option value="Lantungan">Lantungan</option>
+                <option value="Lubid">Lubid</option>
+            </select>
 
-   <br> <label for="Barangay">Barangay</label><br>
-    <select id="country" name="Barangay">
-      <option value="Bag-ong Oslob">Bag-ong Oslob</option>
-      <option value="Lantungan">Lantungan</option>
-      <option value="Lubid">Lubid</option><br>
-    </select>
-    <br><label for="subject">Subject</label><br>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea> </center>
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject"
+                      placeholder="Write something..."
+                      required></textarea>
 
-  <center><input type="submit" value="Submit"></center>
+            <input type="submit" value="Submit">
 
-  </form>
-</div>
- </body>
+        </form>
+    </div>
+
+</body>
+</html>
